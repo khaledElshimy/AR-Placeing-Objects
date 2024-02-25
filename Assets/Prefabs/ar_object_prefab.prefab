@@ -55,7 +55,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 4294967295
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
@@ -483,12 +483,12 @@ GameObject:
   - component: {fileID: 6288205869803484433}
   - component: {fileID: 4415128960484156799}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: selection_indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8194663640000066601
 Transform:
   m_ObjectHideFlags: 0
