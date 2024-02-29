@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44b6bd90752024622b32227b059ed15a, type: 3}
-  m_Name: kichen_chair
+  m_Name: chair_with_pillow
   m_EditorClassIdentifier: 
-  objectName: Kichen Chair
-  objectIcon: {fileID: 21300000, guid: 2b182b7b939be421682bb04c72ffab2b, type: 3}
-  objectPrefab: {fileID: 6955957625923797845, guid: dec3c039c2e6245f894936570fc0b564, type: 3}
+  objectName: Chair With Pillow
+  objectIcon: {fileID: 21300000, guid: c98722e6a34d94b3eb5fd04810c8fb38, type: 3}
+  objectPrefab: {fileID: 8571606537155437038, guid: 825affdca3be7465fba8de39bf61cc05, type: 3}

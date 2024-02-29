@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: chair
   m_EditorClassIdentifier: 
   objectName: Chair
-  objectIcon: {fileID: 21300000, guid: 25866a11957bf4bed872404beb12faf9, type: 3}
-  objectPrefab: {fileID: 2971229548522211646, guid: 279ca6047ff1747348d553209e240264, type: 3}
+  objectIcon: {fileID: 21300000, guid: e206aea243e78464bab47a9b1950b44e, type: 3}
+  objectPrefab: {fileID: 6955957625923797845, guid: dec3c039c2e6245f894936570fc0b564, type: 3}

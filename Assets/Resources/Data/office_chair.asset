@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44b6bd90752024622b32227b059ed15a, type: 3}
-  m_Name: office_table
+  m_Name: office_chair
   m_EditorClassIdentifier: 
-  objectName: Office Table
-  objectIcon: {fileID: 21300000, guid: 298cecfd7b7f845f59f428570b8155ad, type: 3}
-  objectPrefab: {fileID: 6438351179200268836, guid: 08798d833302b48ba8e6961a18a8b462, type: 3}
+  objectName: Office Chair
+  objectIcon: {fileID: 21300000, guid: f731f85695e354f50a82757fa1931752, type: 3}
+  objectPrefab: {fileID: 2971229548522211646, guid: 279ca6047ff1747348d553209e240264, type: 3}
