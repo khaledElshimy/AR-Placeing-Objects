@@ -3,23 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace arplace.UI
+namespace arplace.Modification
 {
-    public class ObjectColorChanger : MonoBehaviour
+    public class ObjectColorChanger : MonoBehaviour, ISingleClickAction
     {
-        [SerializeField] private Slider colorSlider;
-
-        private void Start()
-        {
-            colorSlider.onValueChanged.AddListener(ChangeColor);
-        }
-        public void ChangeColor(float hueValue)
+        public void OnSingleClick()
         {
             Renderer objectRenderer = GetComponentInChildren<Renderer>();
 
-            // Convert hue slider value to color and apply it to the object
-            Color newColor = Color.HSVToRGB(hueValue, 1f, 1f); // Full saturation and brightness
-            objectRenderer.material.color = newColor;
+            // Change the color of the object to a random hue.
+            objectRenderer.material.color = Random.ColorHSV();
         }
     }
 }

@@ -1,16 +1,21 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.Interaction.Toolkit.AR;
 
 namespace arplace.ArInteractableExtentions
 {
-    public class DoubleClickInteractable : ARBaseGestureInteractable
+    public class DoubleClickInteractable : ARBaseGestureInteractable 
     {
+        
         [SerializeField]
         private float maxTimeBetweenClicks = 0.5f; // Time window for double click
 
         private float lastTapTime = 0f;
         private int tapCount = 0;
+
+        [SerializeField]
+        private UnityEvent doubleClickAction;
 
         protected override bool CanStartManipulationForGesture(TapGesture gesture)
         {
@@ -24,7 +29,7 @@ namespace arplace.ArInteractableExtentions
 
         protected override void OnEndManipulation(TapGesture gesture)
         {
-            if (gesture.isCanceled)
+            if (!isSelected && gesture.isCanceled)
             {
                 return; // Gesture was cancelled, do nothing
             }
@@ -56,9 +61,9 @@ namespace arplace.ArInteractableExtentions
 
         private void OnDoubleClick()
         {
-            // Double click action, for example, change color or invoke a custom event
-            Debug.Log("Double Click Detected on " + gameObject.name);
-            // Implement your double click logic here
+            Debug.Log("OnDoubleClick");
+            // Double click action
+            doubleClickAction?.Invoke();
         }
     }
 }
