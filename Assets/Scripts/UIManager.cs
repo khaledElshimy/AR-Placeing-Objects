@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 using UnityEngine.XR.Interaction.Toolkit.AR;
 using arplace.Data;
+using arplace.Events;
 
 namespace arplace.UI
 {
@@ -28,11 +29,11 @@ namespace arplace.UI
         private IEventManager eventManager;
         private IDataManager dataManager;
 
-        private ARPlacementInteractable arPlacementInteractable;
+        private ARPlacementManager aRPlacementManager;
 
-        public void Setup(IEventManager eventManager, IDataManager dataManager, ARPlacementInteractable arPlacementInteractable)
+        public void Setup(IEventManager eventManager, IDataManager dataManager, ARPlacementManager aRPlacementManager)
         {
-            this.arPlacementInteractable = arPlacementInteractable;
+            this.aRPlacementManager = aRPlacementManager;
             this.eventManager = eventManager;
             this.dataManager = dataManager;
             browseButton.onClick.AddListener(OnBrowseButtonPressed);
@@ -53,8 +54,6 @@ namespace arplace.UI
         {
             browseButton.gameObject.SetActive(true);
             objectsSelectionPanel.gameObject.SetActive(false);
-
-            eventManager?.PlaceObject(arPlacementInteractable?.placementPrefab);
 
             // Fire select object event
             eventManager.SelectObject();
