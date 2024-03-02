@@ -30,13 +30,7 @@ namespace arplace
                     if (collision && spawanableObjectPrefab)
                     {
                         PlaceObject(spawanableObjectPrefab, raycastHits[0].pose);
-                    }
-
-                    foreach (var plane in arPlaneManager.trackables)
-                    {
-                        plane.gameObject.SetActive(false);
-                    }
-
+                    }        
                 }
             }
         }
