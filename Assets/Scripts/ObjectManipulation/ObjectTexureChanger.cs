@@ -1,26 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace arplace.ObjectManipulation
 {
+    /// <summary>
+    /// Implements the IDoubleClickAction interface to change the object's texture upon a double-click.
+    /// Holds an array of materials to cycle through each double-click event.
+    /// </summary>
     public class ObjectTexureChanger : MonoBehaviour, IDoubleClickAction
     {
-        // Array to hold your textures
-        public Material[] materials;
-        private int currentMaterialIndex = 0;
+        public Material[] materials; // Array of materials to apply to the object.
+        private int currentMaterialIndex = 0; // Tracks the current index of the applied material.
 
         public void OnDoubleClick()
         {
-            // Change to the next texture in the array
+            // Increment the material index to change the texture.
             currentMaterialIndex++;
+            // Loop back to the first material if the end of the array is reached.
             if (currentMaterialIndex >= materials.Length)
             {
-                currentMaterialIndex = 0; // Loop back to the first texture if we've gone through all
+                currentMaterialIndex = 0;
             }
 
-            // Apply the new texture to the material of the GameObject
-            GetComponentInChildren<Renderer>().material= materials[currentMaterialIndex];
+            // Apply the new material to the object's Renderer component.
+            GetComponentInChildren<Renderer>().material = materials[currentMaterialIndex];
         }
     }
 }

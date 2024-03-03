@@ -1,59 +1,65 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace arplace.ObjectManipulation
 {
+    /// <summary>
+    /// Allows objects to be scaled up or down through pinch gestures.
+    /// Implements the IScalable interface to define scaling behavior.
+    /// </summary>
     public class ScalableObject : IScalable
     {
-        private float initialDistance;
+        private float initialDistance; // Stores the initial distance between two touch points.
 
-        public Vector3 InitialScale { get; set; }
-        public float MinScaleLimit { get; set; }
-        public float MaxScaleLimit { get; set; }
-        public float Damping { get; set; }
+        public Vector3 InitialScale { get; set; } // Initial scale of the object, used for calculating scale adjustments.
+        public float MinScaleLimit { get; set; } // Minimum allowed scale factor.
+        public float MaxScaleLimit { get; set; } // Maximum allowed scale factor.
+        public float Damping { get; set; } // Damping factor for smooth scaling transition.
 
+        /// <summary>
+        /// Scales the object based on the distance between two touch points.
+        /// </summary>
+        /// <param name="transform">Transform of the object to scale.</param>
+        /// <param name="arCamera">AR camera used for raycasting.</param>
+        /// <param name="touchZero">First touch point.</param>
+        /// <param name="touchOne">Second touch point.</param>
         public void Scale(Transform transform, Camera arCamera, Touch touchZero, Touch touchOne)
         {
-            
+            // Perform raycast from camera to ensure the object is being touched.
             Ray ray = arCamera.ScreenPointToRay(touchZero.position);
             RaycastHit hit;
 
+            // Initial touch detection.
             if (touchZero.phase == TouchPhase.Began)
             {
                 if (Physics.Raycast(ray, out hit))
                 {
+                    // Check if the touched object is not the target object.
                     if (hit.collider == null || hit.collider.gameObject != transform.gameObject)
                     {
-                        return;
+                        return; // Exit if the touched object is not this object.
                     }
                 }
             }
 
-            // Get the position of the touches in the previous frame
+            // Calculate the distance between touches for the current and previous frame.
             Vector2 touchZeroPrevPos = touchZero.position - touchZero.deltaPosition;
             Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
 
-            // Find the magnitude of the vector (distance) between the touches in each frame
             float prevTouchDeltaMag = (touchZeroPrevPos - touchOnePrevPos).magnitude;
             float touchDeltaMag = (touchZero.position - touchOne.position).magnitude;
 
-         
-
-            // If this is the first frame where touches are detected, initialize initial distance and scale
+            // Initialize scale calculation on the first touch.
             if (touchZero.phase == TouchPhase.Began || touchOne.phase == TouchPhase.Began)
             {
                 initialDistance = touchDeltaMag;
             }
             else
             {
-                // Calculate scale factor based on the change in distance between the touches
+                // Calculate and apply scaling factor.
                 float scaleFactor = touchDeltaMag / initialDistance;
                 scaleFactor = Mathf.Clamp(scaleFactor, MinScaleLimit, MaxScaleLimit);
 
-                // Set the scale of the object
                 Vector3 targetScale = InitialScale * scaleFactor;
-                // Smoothly interpolate to the target scale
                 transform.localScale = Vector3.Lerp(transform.localScale, targetScale, Damping * Time.deltaTime);
             }
         }
