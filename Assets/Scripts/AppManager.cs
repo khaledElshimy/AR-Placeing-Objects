@@ -28,11 +28,12 @@ namespace arplace
             // Initializes managers and sets up dependencies and event listeners to manage the application's lifecycle.
             eventManager = new EventManager();
             dataManager = new DataManager();
+
             // Configure UIManager with dependencies.
             uIManager.Setup(eventManager, dataManager, arPlacementManger);
+
             // Subscribe to events with respective handlers.
             eventManager.AddSwitchObjectListener(OnSwitchObject);
-            eventManager.AddPlaceObjectListener(OnPlaceObject);
             eventManager.AddBrowsObjectsListener(OnBrowseObjects);
             eventManager.AddSelectObjectListener(OnSelectObject);
         }
@@ -43,7 +44,6 @@ namespace arplace
             if (eventManager != null)
             {
                 eventManager.RemoveSwitchObjectListener(OnSwitchObject);
-                eventManager.RemovePlaceObjectListener(OnPlaceObject);
                 eventManager.RemoveBrowsObjectsListener(OnBrowseObjects);
                 eventManager.RemoveSelectObjectListener(OnSelectObject);
             }
@@ -60,14 +60,6 @@ namespace arplace
         {
             // Calls ARPlacementManager's method to update the AR scene with the new object.
             arPlacementManger.SwitchObject(newPlacedObject);
-        }
-
-        /// <summary>
-        /// Placeholder method for handling the placement of an AR object.
-        /// </summary>
-        private void OnPlaceObject(GameObject placedObject)
-        {
-            // Intended to be implemented with logic to place the specified object in the AR environment.
         }
 
         /// <summary>
