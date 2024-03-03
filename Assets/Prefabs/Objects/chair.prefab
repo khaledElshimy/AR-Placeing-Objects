@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5955972026364296325}
   - component: {fileID: 3987826072796337424}
   - component: {fileID: 2702174145287059735}
+  - component: {fileID: 7549250229962323893}
+  - component: {fileID: -1032423110464381032}
   m_Layer: 0
   m_Name: chair
   m_TagString: Untagged
@@ -48,6 +50,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectionVisuals: {fileID: 6533414565014947920}
+  onLongPress:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7549250229962323893}
+        m_TargetAssemblyTypeName: arplace.ObjectManipulation.ObjectColorChanger,
+          Assembly-CSharp
+        m_MethodName: OnlongPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDoubleTap:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -1032423110464381032}
+        m_TargetAssemblyTypeName: arplace.ObjectManipulation.ObjectTexureChanger,
+          Assembly-CSharp
+        m_MethodName: OnDoubleClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &2702174145287059735
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -69,6 +103,36 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.46389928, y: 0.8352283, z: 0.5728795}
   m_Center: {x: 0, y: 0.42854458, z: -0.0030248463}
+--- !u!114 &7549250229962323893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6955957625923797845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9deee868bf2425e95f887ff2bc827c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-1032423110464381032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6955957625923797845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79ae36c345c544dcb4cf003ebd741aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 2100000, guid: 8507dd0041b82c5469d8627b2c7f8f62, type: 2}
+  - {fileID: 2100000, guid: 2c39ef0333251a745ab2f53a25023c1f, type: 2}
+  - {fileID: 2100000, guid: 97c1ea75e183a514b85db04d867c4b04, type: 2}
+  - {fileID: 2100000, guid: 85f09e9f1ad2a924785fce476b28c1cb, type: 2}
+  - {fileID: 2100000, guid: 440f2ed5c77b59640a988808d91ad8dd, type: 2}
 --- !u!1001 &6579449955254365553
 PrefabInstance:
   m_ObjectHideFlags: 0

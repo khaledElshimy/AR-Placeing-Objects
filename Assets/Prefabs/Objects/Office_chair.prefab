@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4144976192025338128}
   - component: {fileID: 9169284208349062203}
   - component: {fileID: 3512334326751660856}
+  - component: {fileID: 4077213726674608173}
+  - component: {fileID: -2584299500556751369}
   m_Layer: 0
   m_Name: Office_chair
   m_TagString: Untagged
@@ -69,6 +71,68 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectionVisuals: {fileID: 7796608919481665402}
+  onLongPress:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4077213726674608173}
+        m_TargetAssemblyTypeName: arplace.ObjectManipulation.ObjectColorChanger,
+          Assembly-CSharp
+        m_MethodName: OnlongPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDoubleTap:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -2584299500556751369}
+        m_TargetAssemblyTypeName: arplace.ObjectManipulation.ObjectTexureChanger,
+          Assembly-CSharp
+        m_MethodName: OnDoubleClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4077213726674608173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2971229548522211646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9deee868bf2425e95f887ff2bc827c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2584299500556751369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2971229548522211646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79ae36c345c544dcb4cf003ebd741aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 2100000, guid: 8507dd0041b82c5469d8627b2c7f8f62, type: 2}
+  - {fileID: 2100000, guid: 2c39ef0333251a745ab2f53a25023c1f, type: 2}
+  - {fileID: 2100000, guid: 97c1ea75e183a514b85db04d867c4b04, type: 2}
+  - {fileID: 2100000, guid: 85f09e9f1ad2a924785fce476b28c1cb, type: 2}
+  - {fileID: 2100000, guid: 440f2ed5c77b59640a988808d91ad8dd, type: 2}
 --- !u!1001 &7044394768264543650
 PrefabInstance:
   m_ObjectHideFlags: 0

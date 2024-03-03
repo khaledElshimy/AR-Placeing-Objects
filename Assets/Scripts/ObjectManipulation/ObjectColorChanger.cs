@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 namespace arplace.ObjectManipulation
 {
-    public class ObjectColorChanger : MonoBehaviour, ISingleClickAction
+    public class ObjectColorChanger : MonoBehaviour, ILongPressAction
     {
-        public void OnSingleClick()
+        public void OnlongPress()
         {
             Renderer objectRenderer = GetComponentInChildren<Renderer>();
 
