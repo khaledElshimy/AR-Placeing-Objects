@@ -1,13 +1,11 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace arplace.UI
 {
-    public class ObjectUIITem : MonoBehaviour
+    public class ObjectUIItem : MonoBehaviour
     {
         [SerializeField] private Text objectName;
         [SerializeField] private Image objectIcon;
