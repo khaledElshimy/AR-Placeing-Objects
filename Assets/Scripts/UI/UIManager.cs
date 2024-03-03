@@ -1,9 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
-
-using UnityEngine.XR.Interaction.Toolkit.AR;
 using arplace.Data;
 using arplace.Events;
 
