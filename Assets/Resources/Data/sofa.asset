@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: sofa
   m_EditorClassIdentifier: 
   objectName: Sofa
-  objectIcon: {fileID: 21300000, guid: b477667c82b7e48c8b0025ae8f2caf3d, type: 3}
-  objectPrefab: {fileID: 6438351179200268836, guid: 5567060b6d0954b9693bac560248d726, type: 3}
+  objectIcon: {fileID: 21300000, guid: 3e15b67fed0ba46a0887bf08d890e509, type: 3}
+  objectPrefab: {fileID: 6438351179200268836, guid: 08798d833302b48ba8e6961a18a8b462, type: 3}

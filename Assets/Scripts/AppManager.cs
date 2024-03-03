@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.AR;
 using arplace.UI;
 using arplace.Data;
+using arplace.Events;
+
 using System;
 
 namespace arplace
@@ -11,7 +13,7 @@ namespace arplace
         #region Private Members
         private IEventManager eventManager;
         private IDataManager dataManager;
-        [SerializeField] private ARPlacementInteractable arPlacementInteractable;
+        [SerializeField] private ARPlacementManager arPlacementManger;
         [SerializeField] private UIManager uIManager;
 
         #endregion
@@ -23,7 +25,7 @@ namespace arplace
             eventManager = new EventManager();
             dataManager = new DataManager();
 
-            uIManager.Setup(eventManager, dataManager, arPlacementInteractable);
+            uIManager.Setup(eventManager, dataManager, arPlacementManger);
             // Subsribe listeners to EventManager events
             eventManager.AddSwitchObjectListener(OnSwitchObject);
             eventManager.AddPlaceObjectListener(OnPlaceObject);
@@ -34,12 +36,12 @@ namespace arplace
 
         private void OnBrowseObjects()
         {
-           arPlacementInteractable.enabled = false;
+            arPlacementManger.enabled = false;
         }
 
         private void OnSelectObject()
         {
-            arPlacementInteractable.enabled = true;
+            arPlacementManger.enabled = true;
         }
 
         private void OnDestroy()
@@ -56,13 +58,12 @@ namespace arplace
 
         private void OnSwitchObject(GameObject newplacedObject)
         {
-            Debug.Log($"{newplacedObject.name} New Object Place");
-            arPlacementInteractable.placementPrefab = newplacedObject;
+            arPlacementManger.SwitchObject(newplacedObject);
         }
 
         private void OnPlaceObject(GameObject placedObject)
         {
-            Debug.Log($"{placedObject.name} Object Place");
+           // arPlacementManger.PlaceObject(placedObject);
         }
         #endregion
     }
