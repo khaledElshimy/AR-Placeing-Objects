@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace arplace.Modification
+namespace arplace.ObjectManipulation
 {
     public class ObjectColorChanger : MonoBehaviour, ISingleClickAction
     {

@@ -84,12 +84,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6438351179200268836}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2fa938e78818c4b02a62c13e955896c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 100
+  rotationRateDegreesDrag: 1
 --- !u!65 &5385135527248494616
 BoxCollider:
   m_ObjectHideFlags: 0

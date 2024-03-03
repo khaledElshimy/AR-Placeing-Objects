@@ -8,7 +8,7 @@ namespace arplace.ObjectManipulation
     {
         private float initialDistance;
         private Vector3 initialScale;
-                private Camera cam;
+        private Camera cam;
 
         [SerializeField]
         private float minScale;

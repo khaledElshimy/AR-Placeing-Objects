@@ -3,7 +3,7 @@ using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.AR;
 
-namespace arplace.ArInteractableExtentions
+namespace arplace.ObjectManipulation
 {
     public class SingleClickInteractable : ARBaseGestureInteractable
     {

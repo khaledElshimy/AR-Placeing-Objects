@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace arplace.Modification
+namespace arplace.ObjectManipulation
 {
     public class ObjectTexureChanger : MonoBehaviour, IDoubleClickAction
     {
