@@ -4,27 +4,33 @@ using UnityEngine;
 
 namespace arplace.ObjectManipulation
 {
-    public class RotatableObject : MonoBehaviour
+    public class RotatableObject : IRotatable
     {
         private bool isRotating = false;
-        [SerializeField]
-        private float rotationRateDegreesDrag = 0.1f; // Adjust this value to control rotation sensitivity
+        public float Damping { get; set; }
 
-        void Update()
+        public bool IsMoving { get => isRotating; set => isRotating = value; }
+
+        bool IRotatable.IsRotating { get => isRotating; set => isRotating = value; }
+
+        public void Rotate(Transform transform)
         {
-            if (Input.touchCount == 1)
-            {
-                Touch screenTouch = Input.GetTouch(0);
-                if (screenTouch.phase == TouchPhase.Moved)
-                {
-                    transform.Rotate(0f, -screenTouch.deltaPosition.x * rotationRateDegreesDrag, 0f, Space.World);
+            isRotating = true;
+            Touch touch = Input.GetTouch(0);
 
-                    isRotating = true;
-                }
-                if (screenTouch.phase == TouchPhase.Ended)
-                {
-                    isRotating = false;
-                }
+            if (touch.phase == TouchPhase.Moved)
+            {
+                Debug.Log("Touch Phaes Moved for rotation.");
+
+                float rotationAmount = -touch.deltaPosition.x * Damping;
+                transform.Rotate(0f, rotationAmount, 0f, Space.World);
+        
+                Debug.Log($"Rotating object: {rotationAmount} degrees.");
+            }
+            if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+            {
+                isRotating = false;
+                Debug.Log("Rotation ended.");
             }
         }
     }

@@ -9,10 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 304256967542384612}
-  - component: {fileID: 4577207957462097773}
-  - component: {fileID: -9179024323743279205}
-  - component: {fileID: -331735603130361207}
-  - component: {fileID: -9013090817279573404}
+  - component: {fileID: 7139810370616349645}
   - component: {fileID: 9126014354929577210}
   m_Layer: 0
   m_Name: sofa
@@ -38,7 +35,7 @@ Transform:
   - {fileID: 314450721317404586}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4577207957462097773
+--- !u!114 &7139810370616349645
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47,49 +44,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6438351179200268836}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25c2c28f3cce24d8998d7cc0b61a0d02, type: 3}
+  m_Script: {fileID: 11500000, guid: c371bb414c4ee4531845a0969fd839aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   selectionVisuals: {fileID: 1862083324737391865}
---- !u!114 &-9179024323743279205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6438351179200268836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 819133de449394ec49e8d477e5c3bad9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-331735603130361207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6438351179200268836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc257c84446b849b2800d594e24163b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minScale: 0.5
-  maxScale: 1.5
---- !u!114 &-9013090817279573404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6438351179200268836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fa938e78818c4b02a62c13e955896c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationRateDegreesDrag: 1
 --- !u!65 &9126014354929577210
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ISelectable : MonoBehaviour
+namespace arplace.ObjectManipulation
 {
-    // Start is called before the first frame update
-    void Start()
+    public interface ISelectable
     {
-        
-    }
+        bool IsSelected { get; set; }
+        GameObject SelectionVisuals { get; set; }
+        void Select();
+        void Deselect();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
+

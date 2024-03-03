@@ -1,18 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.ARFoundation;
 
-public class IMovable : MonoBehaviour
+namespace arplace.ObjectManipulation
 {
-    // Start is called before the first frame update
-    void Start()
+    public interface IMovable 
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        bool IsMoving { get; set; }
+        float Damping { get; set; }
+        void Move(Transform transform, ARRaycastManager raycastManager);
     }
 }

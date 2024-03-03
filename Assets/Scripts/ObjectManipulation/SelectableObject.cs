@@ -4,56 +4,39 @@ using UnityEngine;
 
 namespace arplace.ObjectManipulation
 {
-    public class SelectableObject : MonoBehaviour
+    public class SelectableObject : ISelectable
     {
-        [SerializeField]
-        private GameObject selectionVisuals;
         public bool IsSelected { get; set; }
-        private Camera arCamera;
 
-        private void Start()
-        {
-            arCamera = Camera.main;
-        }
+        public GameObject SelectionVisuals { get; set; }
 
-        void Update()
+        public void Select()
         {
-            if (Input.touchCount > 0)
+            Debug.Log("Select.");
+
+            if (SelectionVisuals != null)
             {
-                Touch touch = Input.GetTouch(0);
-
-                if (touch.phase == TouchPhase.Began)
-                {
-                    Ray ray = arCamera.ScreenPointToRay(touch.position);
-                    RaycastHit hit;
-                    if (Physics.Raycast(ray, out hit))
-                    {
-                        Debug.Log(hit.transform.gameObject.name);
-                        if (hit.collider != null && hit.collider.gameObject == gameObject)
-                        {
-                            ShowSelectionVisuals();
-                        }
-                        else
-                        {
-                            HideSelectionVisuals();
-                        }
-                    }
-                    else
-                    {
-                        HideSelectionVisuals();
-                    }
-                }
+                SelectionVisuals.SetActive(true);
+                Debug.Log("Object selected.");
             }
-        }
-        private void ShowSelectionVisuals()
-        {
-            selectionVisuals.gameObject.SetActive(true);
+            else
+            {
+                Debug.LogWarning("SelectionVisuals not set for SelectableObject.");
+            }
             IsSelected = true;
         }
 
-        private void HideSelectionVisuals()
+        public void Deselect()
         {
-            selectionVisuals.gameObject.SetActive(false);
+            if (SelectionVisuals != null)
+            {
+                SelectionVisuals.SetActive(false);
+                Debug.Log("Object deselected.");
+            }
+            else
+            {
+                Debug.LogWarning("SelectionVisuals not set for SelectableObject, cannot deselect visually.");
+            }
             IsSelected = false;
         }
     }

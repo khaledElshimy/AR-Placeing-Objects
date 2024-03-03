@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IScalable : MonoBehaviour
+namespace arplace.ObjectManipulation
 {
-    // Start is called before the first frame update
-    void Start()
+    public interface IScalable
     {
-        
-    }
+        float MinScaleLimit { get; set; }
+        Vector3 InitialScale { get; set; }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        float MaxScaleLimit { get; set; }
+        float Damping { get; set; }
+
+        void Scale(Transform transform, Camera arCamera, Touch touchZero, Touch touchOne);
     }
 }

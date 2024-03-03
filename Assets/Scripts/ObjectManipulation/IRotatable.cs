@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IRotatable : MonoBehaviour
+namespace arplace.ObjectManipulation
 {
-    // Start is called before the first frame update
-    void Start()
+    public interface IRotatable
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        bool IsRotating { get; set; }
+        float Damping { get; set; }
+        void Rotate(Transform transform);
     }
 }

@@ -6,57 +6,40 @@ using UnityEngine.XR.ARSubsystems;
 
 namespace arplace.ObjectManipulation
 {
-    public class MovableObject : MonoBehaviour
+    public class MovableObject : IMovable
     {
-        private Camera cam;
-        private Vector3 offset;
-        private bool isDragging = false;
-        private float dampening = 5;
-            private ARRaycastManager raycastManager;
+        private bool isMoving = false;
 
-        void Start()
-        {
-            raycastManager = FindObjectOfType<ARRaycastManager>();
-            cam = Camera.main;
-        }
+        public bool IsMoving { get => isMoving; set => isMoving = value; }
+        public float Damping { get; set; }
 
-        void Update()
+        public void Move(Transform transform, ARRaycastManager raycastManager)
         {
-            if (Input.touchCount > 0 && Input.touchCount < 2)
+            Debug.Log("Move.");
+            IsMoving = true;
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Moved)
             {
-                Touch touch = Input.GetTouch(0);
-                Ray ray = cam.ScreenPointToRay(touch.position);
-                RaycastHit hit;
+                List<ARRaycastHit> hits = new List<ARRaycastHit>();
+                Debug.Log("Touch Phaes Moved for movement.");
 
-                if (touch.phase == TouchPhase.Began)
+                if (raycastManager.Raycast(touch.position, hits, TrackableType.PlaneWithinPolygon))
                 {
-                    if (Physics.Raycast(ray, out hit))
-                    {
-                        if (hit.collider != null && hit.collider.gameObject == gameObject)
-                        {
-                            isDragging = true;
-                            offset = gameObject.transform.position - hit.point;
-                        }
-                    }
+                    Pose hitPose = hits[0].pose;
+                    Vector3 newPos = Vector3.Lerp(transform.localPosition, hitPose.position, Damping * Time.deltaTime);
+                    transform.localPosition = newPos;
+                    Debug.Log($"Moving to new position: {newPos}");
                 }
-
-                if (touch.phase == TouchPhase.Moved && isDragging)
+                else
                 {
-                    List<ARRaycastHit> hits = new List<ARRaycastHit>();
-
-                    if (raycastManager.Raycast(touch.position, hits, TrackableType.PlaneWithinPolygon))
-                    {
-                        Debug.Log("raycastManager hits");
-                        Pose hitPose = hits[0].pose;
-                        Vector3 newPos = Vector3.Lerp(transform.localPosition, hitPose.position, dampening * Time.deltaTime);
-                       transform.localPosition = newPos;
-
-                    }                                
+                    Debug.Log("Raycast did not hit an AR plane.");
                 }
-                if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
-                {
-                    isDragging = false;
-                }
+            }
+            if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+            {
+                isMoving = false;
+                Debug.Log("Movement ended.");
             }
         }
     }
