@@ -153,8 +153,12 @@ namespace arplace.ObjectManipulation
                         // Handle touch end phase
                         if (selectable.IsSelected && isLongPress)
                         {
-                            // If it was a long press, invoke the long press event
-                            onLongPress?.Invoke();
+                            if(!movable.IsMoving && !rotatable.IsRotating)
+                            {
+                                // If it was a long press, invoke the long press event
+                                onLongPress?.Invoke();
+                            } 
+                     
                         }
 
                         if (Physics.Raycast(ray, out hit))
@@ -167,6 +171,7 @@ namespace arplace.ObjectManipulation
                                     // Deselect the object if it's not moving
                                     selectable.Deselect();
                                 }
+
                                 if (!rotatable.IsRotating)
                                 {
                                     // Deselect the object if it's not rotating
