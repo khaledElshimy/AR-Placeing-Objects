@@ -53,7 +53,7 @@ MonoBehaviour:
   onLongPress:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4077213726674608173, guid: 279ca6047ff1747348d553209e240264, type: 3}
+      - m_Target: {fileID: 638851457288858427}
         m_TargetAssemblyTypeName: arplace.ObjectManipulation.ObjectColorChanger,
           Assembly-CSharp
         m_MethodName: OnlongPress
@@ -69,7 +69,7 @@ MonoBehaviour:
   onDoubleTap:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -2584299500556751369, guid: 279ca6047ff1747348d553209e240264, type: 3}
+      - m_Target: {fileID: -2530810360423219205}
         m_TargetAssemblyTypeName: arplace.ObjectManipulation.ObjectTexureChanger,
           Assembly-CSharp
         m_MethodName: OnDoubleClick
