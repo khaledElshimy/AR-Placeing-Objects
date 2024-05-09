@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using arplace.Data.interfaces;
 
 namespace arplace.Data
 {

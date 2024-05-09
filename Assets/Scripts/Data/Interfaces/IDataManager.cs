@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace arplace.Data
+namespace arplace.Data.interfaces
 {
     /// <summary>
     /// Defines the contract for data management within the application.

@@ -1,5 +1,7 @@
 using UnityEngine;
 using arplace.UI;
+using arplace.Data.interfaces;
+using arplace.Events.interfaces;
 using arplace.Data;
 using arplace.Events;
 

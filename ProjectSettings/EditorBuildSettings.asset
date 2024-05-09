@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/arplace.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/PersistentCloudAnchors/Scenes/PersistentCloudAnchorsArf5.unity
+    guid: 420f30d1cdc9e49498b3e1673b58e382
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 81ed04da1ebfc4141aedec80834c0a6b, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 2908a6fbd415944a3844f16321e33394, type: 2}

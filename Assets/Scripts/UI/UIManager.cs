@@ -2,7 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using arplace.Data;
-using arplace.Events;
+using arplace.Data.interfaces;
+using arplace.Events.interfaces;
 
 namespace arplace.UI
 {

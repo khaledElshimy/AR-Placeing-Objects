@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using arplace.Events.interfaces;
 
 namespace arplace.Events
 {

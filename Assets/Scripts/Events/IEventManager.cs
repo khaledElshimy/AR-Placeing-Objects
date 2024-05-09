@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace arplace.Events
+namespace arplace.Events.interfaces
 {
     /// <summary>
     /// Defines the contract for an event management system in the application.
